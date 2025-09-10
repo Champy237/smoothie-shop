@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - FreshJuice</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>🍊 FreshJuice</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="catalog.html" class="nav-link">Catalogue</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                    <li>
+                        <div class="cart-icon" id="cartIcon">
+                            <span>🛒</span>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Nous Contacter</h1>
+                <p>Une question ? Un conseil ? Nous sommes là pour vous aider !</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <!-- Contact Information -->
+                    <div class="contact-info">
+                        <h2>Nos Coordonnées</h2>
+                        
+                        <div class="info-item">
+                            <div class="info-icon">📍</div>
+                            <div>
+                                <h3>Adresse</h3>
+                                <p>123 Rue des Vergers<br>75001 Paris, France</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">📞</div>
+                            <div>
+                                <h3>Téléphone</h3>
+                                <p>01 23 45 67 89</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">📧</div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>contact@freshjuice.fr</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">🕒</div>
+                            <div>
+                                <h3>Horaires</h3>
+                                <p>Lundi - Vendredi : 9h - 18h<br>
+                                   Samedi : 9h - 17h<br>
+                                   Dimanche : Fermé</p>
+                            </div>
+                        </div>
+
+                        <div class="social-links">
+                            <h3>Suivez-nous</h3>
+                            <div class="social-icons">
+                                <a href="#" class="social-link">📘 Facebook</a>
+                                <a href="#" class="social-link">📷 Instagram</a>
+                                <a href="#" class="social-link">🐦 Twitter</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="contact-form">
+                        <h2>Envoyez-nous un message</h2>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="firstName">Prénom *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="lastName">Nom *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Téléphone</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Sujet *</label>
+                                <select id="subject" name="subject" required>
+                                    <option value="">Choisissez un sujet</option>
+                                    <option value="question-produit">Question sur un produit</option>
+                                    <option value="commande">Problème de commande</option>
+                                    <option value="livraison">Question sur la livraison</option>
+                                    <option value="partenariat">Proposition de partenariat</option>
+                                    <option value="autre">Autre</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="6" placeholder="Décrivez votre demande..." required></textarea>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="newsletter" name="newsletter">
+                                    <span class="checkmark"></span>
+                                    Je souhaite recevoir la newsletter avec les nouveautés et promotions
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="consent" name="consent" required>
+                                    <span class="checkmark"></span>
+                                    J'accepte que mes données soient utilisées pour répondre à ma demande *
+                                </label>
+                            </div>
+
+                            <button type="submit" class="cta-button">Envoyer le message</button>
+                        </form>
+
+                        <div id="formMessage" class="form-message hidden"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="container">
+                <h2>Questions Fréquentes</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>🚚 Quels sont les délais de livraison ?</h3>
+                        <p>Nous livrons en 24h dans toute la France métropolitaine pour conserver la fraîcheur de nos jus.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>📦 Comment sont emballés les produits ?</h3>
+                        <p>Nos jus sont emballés dans des contenants recyclables et expédiés dans des colis isothermes.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>💳 Quels sont les moyens de paiement acceptés ?</h3>
+                        <p>Nous acceptons les cartes bancaires, PayPal et les virements bancaires.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>🔄 Puis-je retourner un produit ?</h3>
+                        <p>En raison de la nature périssable de nos produits, les retours ne sont pas acceptés sauf défaut de fabrication.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🍊 FreshJuice</h3>
+                    <p>Des jus de fruits naturels pour une vie plus saine et plus savoureuse.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens Utiles</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="catalog.html">Catalogue</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📧 contact@freshjuice.fr</p>
+                    <p>📞 01 23 45 67 89</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FreshJuice. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Mon Panier</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cartItems"></div>
+                <div class="cart-total">
+                    <h3>Total: <span id="cartTotal">0,00€</span></h3>
+                </div>
+                <div class="cart-actions">
+                    <button id="clearCart" class="btn-secondary">Vider le panier</button>
+                    <button id="checkoutBtn" class="cta-button">Passer la commande</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

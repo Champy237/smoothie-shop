@@ -1,0 +1,7 @@
+ FreshJuice Admin
+Dashboard
+Produits
+Commandes
+Clients
+Retour au site
+Déconnexion

@@ -1,0 +1,88 @@
+{% extends "../catalog.html" %}
+{% load static %}
+{% block title %}CATALOG{% endblock title %}
+
+{% block containers %}
+
+<!-- Compteur de panier (ex: dans le header) -->
+<div style="position: fixed; top: 10px; right: 20px; z-index: 1000;">
+    <span>Panier : <span id="cartCount">{{ request.session.cart|length|default:0 }}</span> articles</span>
+</div>
+
+<section class="catalog">
+    <div class="container">
+
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <h3>Filtrer par catégorie:</h3>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all" onclick="window.location.href='{% url 'catalog' %}'">Tous</button>
+                <button class="filter-btn" data-filter="classic" onclick="window.location.href='{% url 'catalog_classique' %}'">Classiques</button>
+                <button class="filter-btn" data-filter="exotic" onclick="window.location.href='{% url 'catalog_exotic' %}'">Exotiques</button>
+                <button class="filter-btn" data-filter="smoothie" onclick="window.location.href='{% url 'smoothies' %}'">Smoothies</button>
+            </div>
+        </div>
+
+        <!-- CSRF token pour JS -->
+        <input type="hidden" id="csrfToken" value="{{ csrf_token }}">
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="productsGrid">
+            {% for juice in juices %}
+            <div class="product">
+                <div class="product-image">
+                    <img src="{{ juice.image.url }}" alt="{{ juice.name }}">
+                </div>
+                <div class="product-info">
+                    <h3>{{ juice.name }}</h3>
+                    <p class="product-description">{{ juice.description }}</p>
+                    <p class="price">{{ juice.price }} FCFA</p>
+
+                    <button class="add-to-cart-btn" data-id="{{ juice.id }}" 
+                            style="width: 100%; background-color: #28a745; color: #fff; border: none; padding: 10px 0; border-radius: 5px; font-weight: bold; cursor: pointer;">
+                        Ajouter au panier
+                    </button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+<!-- Styles hover -->
+<style>
+    .add-to-cart-btn:hover {
+        background-color: #218838;
+    }
+</style>
+
+<!-- JS pour ajouter au panier -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+        button.addEventListener('click', function(e){
+            e.preventDefault();
+            const productId = this.dataset.id;
+            const csrftoken = document.getElementById('csrfToken').value;
+
+            fetch(`/add-to-cart/${productId}/`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': csrftoken,
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const cartCounter = document.getElementById('cartCount');
+                if (cartCounter) cartCounter.textContent = data.total_items;
+                alert("Produit ajouté au panier !");
+            })
+            .catch(error => console.error(error));
+        });
+    });
+});
+</script>
+
+{% endblock containers %}

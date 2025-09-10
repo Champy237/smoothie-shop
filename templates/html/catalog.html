@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue - FreshJuice</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>🍊 FreshJuice</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="catalog.html" class="nav-link active">Catalogue</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li>
+                        <div class="cart-icon" id="cartIcon">
+                            <span>🛒</span>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Notre Catalogue</h1>
+                <p>Découvrez notre gamme complète de jus de fruits naturels</p>
+            </div>
+        </section>
+
+        <section class="catalog">
+            <div class="container">
+                <!-- Filter Section -->
+                <div class="filter-section">
+                    <h3>Filtrer par catégorie:</h3>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">Tous</button>
+                        <button class="filter-btn" data-filter="classic">Classiques</button>
+                        <button class="filter-btn" data-filter="exotic">Exotiques</button>
+                        <button class="filter-btn" data-filter="smoothie">Smoothies</button>
+                    </div>
+                </div>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="productsGrid">
+                    <!-- Product 1 -->
+                    <div class="product" data-id="1" data-name="Jus d'Orange Frais" data-price="4.50" data-category="classic">
+                        <div class="product-image">
+                            <img src="https://images.pexels.com/photos/1002740/pexels-photo-1002740.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Jus d'orange frais">
+                        </div>
+                        <div class="product-info">
+                            <h3>Jus d'Orange Frais</h3>
+                            <p class="product-description">Orange pressée à froid, riche en vitamine C</p>
+                            <p class="price">4,50€</p>
+                            <button class="add-to-cart" data-id="1">Ajouter au panier</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product" data-id="2" data-name="Jus de Pomme Bio" data-price="4.00" data-category="classic">
+                        <div class="product-image">
+                            <img src="https://images.pexels.com/photos/1327838/pexels-photo-1327838.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Jus de pomme bio">
+                        </div>
+                        <div class="product-info">
+                            <h3>Jus de Pomme Bio</h3>
+                            <p class="product-description">Pommes biologiques, goût authentique</p>
+                            <p class="price">4,00€</p>
+                            <button class="add-to-cart" data-id="2">Ajouter au panier</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product" data-id="3" data-name="Smoothie Mangue" data-price="5.50" data-category="smoothie">
+                        <div class="product-image">
+                            <img src="https://images.pexels.com/photos/1842332/pexels-photo-1842332.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Smoothie mangue">
+                        </div>
+                        <div class="product-info">
+                            <h3>Smoothie Mangue</h3>
+                            <p class="product-description">Mangue, banane et lait de coco</p>
+                            <p class="price">5,50€</p>
+                            <button class="add-to-cart" data-id="3">Ajouter au panier</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product" data-id="4" data-name="Jus de Fraise" data-price="5.00" data-category="classic">
+                        <div class="product-image">
+                            <img src="https://images.pexels.com/photos/1337825/pexels-photo-1337825.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Jus de fraise">
+                        </div>
+                        <div class="product-info">
+                            <h3>Jus de Fraise</h3>
+                            <p class="product-description">Fraises fraîches du terroir français</p>
+                            <p class="price">5,00€</p>
+                            <button class="add-to-cart" data-id="4">Ajouter au panier</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="product" data-id="5" data-name="Jus d'Ananas Tropical" data-price="4.80" data-category="exotic">
+                        <div class="product-image">
+                            <img src="https://images.pexels.com/photos/1448721/pexels-photo-1448721.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Jus d'ananas">
+                        </div>
+                        <div class="product-info">
+                            <h3>Jus d'Ananas Tropical</h3>
+                            <p class="product-description">Ananas frais des îles tropicales</p>
+                            <p class="price">4,80€</p>
+                            <button class="add-to-cart" data-id="5">Ajouter au panier</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="product" data-id="6" data-name="Smoothie Fruits Rouges" data-price="5.80" data-category="smoothie">
+                        <div class="product-image">
+                            <img src="https://images.pexels.com/photos/775032/pexels-photo-775032.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Smoothie fruits rouges">
+                        </div>
+                        <div class="product-info">
+                            <h3>Smoothie Fruits Rouges</h3>
+                            <p class="product-description">Fraises, framboises, myrtilles et yaourt grec</p>
+                            <p class="price">5,80€</p>
+                            <button class="add-to-cart" data-id="6">Ajouter au panier</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 7 -->
+                    <div class="product" data-id="7" data-name="Jus de Passion Exotique" data-price="6.00" data-category="exotic">
+                        <div class="product-image">
+                            <img src="https://images.pexels.com/photos/1495005/pexels-photo-1495005.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Jus de fruit de la passion">
+                        </div>
+                        <div class="product-info">
+                            <h3>Jus de Passion Exotique</h3>
+                            <p class="product-description">Fruit de la passion intense et rafraîchissant</p>
+                            <p class="price">6,00€</p>
+                            <button class="add-to-cart" data-id="7">Ajouter au panier</button>
+                        </div>
+                    </div>
+
+                    <!-- Product 8 -->
+                    <div class="product" data-id="8" data-name="Green Smoothie Détox" data-price="6.50" data-category="smoothie">
+                        <div class="product-image">
+                            <img src="https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Green smoothie">
+                        </div>
+                        <div class="product-info">
+                            <h3>Green Smoothie Détox</h3>
+                            <p class="product-description">Épinards, pomme verte, concombre et citron</p>
+                            <p class="price">6,50€</p>
+                            <button class="add-to-cart" data-id="8">Ajouter au panier</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🍊 FreshJuice</h3>
+                    <p>Des jus de fruits naturels pour une vie plus saine et plus savoureuse.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens Utiles</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="catalog.html">Catalogue</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📧 contact@freshjuice.fr</p>
+                    <p>📞 01 23 45 67 89</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FreshJuice. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Mon Panier</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cartItems"></div>
+                <div class="cart-total">
+                    <h3>Total: <span id="cartTotal">0,00€</span></h3>
+                </div>
+                <div class="cart-actions">
+                    <button id="clearCart" class="btn-secondary">Vider le panier</button>
+                    <button id="checkoutBtn" class="cta-button">Passer la commande</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../javascript/script.js"></script>
+</body>
+</html>

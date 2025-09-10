@@ -1,0 +1,130 @@
+{% extends "../base/base_nav.html" %}
+{% load static %}
+{% block title %}HOME{% endblock title %}
+
+{% block container %}
+
+
+    <style>
+        /* Bouton Admin */
+        .admin-btn {
+            background-color: #FF8C42; /* orange vif */
+            color: white;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            text-align: center;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .admin-btn:hover {
+            background-color: #e05500; /* orange foncé */
+            transform: scale(1.05);
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .admin-btn {
+                width: 100%;       /* bouton plein largeur sur mobile */
+                margin-top: 0.5rem;
+            }
+        }
+
+    </style>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Des Jus de Fruits 100% Naturels</h1>
+                <p>Découvrez notre sélection de jus de fruits frais, pressés avec amour pour vous offrir le meilleur de la nature.</p>
+                <a href="catalog.html" class="cta-button">Découvrir nos jus</a>
+
+                {% if request.user.is_authenticated and request.user.is_superuser %}
+                    <a href="{% url 'index_admin' %}" class="cta-button admin-btn" style="margin-top:1rem; display:inline-block;">
+                        Accéder à l'Administration
+                    </a>
+                {% endif %}
+            </div>
+            <div class="hero-image">
+                <img src="{% static 'image/index_img1.png' %}" alt="Jus de fruits frais">
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="container">
+                <h2>Pourquoi choisir FreshJuice ?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>100% Naturel</h3>
+                        <p>Aucun conservateur ni colorant artificiel, que des fruits frais sélectionnés.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h3>Livraison Rapide</h3>
+                        <p>Livraison en 24h pour conserver toute la fraîcheur de nos jus.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <h3>Éco-Responsable</h3>
+                        <p>Emballages recyclables et fruits issus de l'agriculture biologique.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Popular Products Preview -->
+        <section class="popular-products">
+            <div class="container">
+                <h2>Nos Jus Populaires</h2>
+                <div class="products-preview">
+                    
+                    {% for juice in juices %}
+                    <div class="product-card preview">
+                        <img src="{{ juice.image.url }}" alt="{{ juice.name }}">
+                        <h3>{{ juice.name }}</h3>
+                        <p class="price">{{ juice.price }} fcfa</p>
+
+                        <div class="product-actions" style="display: flex; gap: 10px; margin-top: 10px;">
+                            <!-- Bouton Ajouter au panier -->
+                            <form action="#" method="post" style="flex:1;">
+                                {% csrf_token %}
+                                <button type="submit" class="cta-button add-to-cart-btn" style="width: 100%;">
+                                     Ajouter
+                                </button>
+                            </form>
+
+                            <!-- Bouton Voir détails -->
+                            <a href="{% url 'detail_juice' juice.id %}" class="cta-button detail-btn" style=" text-align:center;">
+                                 Voir
+                            </a>
+                        </div>
+                    </div>
+
+
+
+
+                    {% endfor %}
+                        
+                </div> 
+                <div class="text-center">
+                    <a href="{% url "catalog" %}" class="cta-button secondary">Voir tous les produits</a>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock container %}
+
+   

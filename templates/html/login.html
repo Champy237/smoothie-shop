@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - FreshJuice</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>🍊 FreshJuice</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="catalog.html" class="nav-link">Catalogue</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="login.html" class="nav-link active">Connexion</a></li>
+                    <li>
+                        <div class="cart-icon" id="cartIcon">
+                            <span>🛒</span>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Connexion</h1>
+                <p>Accédez à votre compte FreshJuice</p>
+            </div>
+        </section>
+
+        <section class="login-section">
+            <div class="container">
+                <div class="login-container">
+                    <div class="login-form">
+                        <h2>Se connecter</h2>
+                        <form id="loginForm">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Mot de passe</label>
+                                <input type="password" id="password" name="password" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="remember" name="remember">
+                                    <span class="checkmark"></span>
+                                    Se souvenir de moi
+                                </label>
+                            </div>
+
+                            <button type="submit" class="cta-button">Se connecter</button>
+                        </form>
+
+                        <div class="login-links">
+                            <a href="#" class="forgot-password">Mot de passe oublié ?</a>
+                            <p>Pas encore de compte ? <a href="#" class="register-link">S'inscrire</a></p>
+                        </div>
+
+                        <div class="admin-access">
+                            <hr>
+                            <p>Accès administrateur</p>
+                            <button id="adminLoginBtn" class="btn-secondary">Connexion Admin</button>
+                        </div>
+
+                        <div id="loginMessage" class="form-message hidden"></div>
+                    </div>
+
+                    <div class="login-benefits">
+                        <h3>Avantages du compte FreshJuice</h3>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🎯</div>
+                            <div>
+                                <h4>Commandes rapides</h4>
+                                <p>Sauvegardez vos informations pour commander plus rapidement</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">📦</div>
+                            <div>
+                                <h4>Suivi des commandes</h4>
+                                <p>Suivez l'état de vos commandes en temps réel</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🎁</div>
+                            <div>
+                                <h4>Offres exclusives</h4>
+                                <p>Recevez des promotions réservées aux membres</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">⭐</div>
+                            <div>
+                                <h4>Programme fidélité</h4>
+                                <p>Gagnez des points à chaque achat</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🍊 FreshJuice</h3>
+                    <p>Des jus de fruits naturels pour une vie plus saine et plus savoureuse.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens Utiles</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="catalog.html">Catalogue</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📧 contact@freshjuice.fr</p>
+                    <p>📞 01 23 45 67 89</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FreshJuice. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Mon Panier</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cartItems"></div>
+                <div class="cart-total">
+                    <h3>Total: <span id="cartTotal">0,00€</span></h3>
+                </div>
+                <div class="cart-actions">
+                    <button id="clearCart" class="btn-secondary">Vider le panier</button>
+                    <button id="checkoutBtn" class="cta-button">Passer la commande</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../javascripts/script.js"></script>
+</body>
+</html>

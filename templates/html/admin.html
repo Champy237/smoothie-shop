@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - FreshJuice</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar admin-nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>🍊 FreshJuice Admin</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="admin.html" class="nav-link active">Dashboard</a></li>
+                    <li><a href="#" class="nav-link" onclick="showSection('products')">Produits</a></li>
+                    <li><a href="#" class="nav-link" onclick="showSection('orders')">Commandes</a></li>
+                    <li><a href="#" class="nav-link" onclick="showSection('customers')">Clients</a></li>
+                    <li><a href="index.html" class="nav-link">Retour au site</a></li>
+                    <li><a href="#" class="nav-link" onclick="logout()">Déconnexion</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="admin-main">
+        <div class="container">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="admin-section active">
+                <div class="admin-header">
+                    <h1>Tableau de bord</h1>
+                    <p>Vue d'ensemble de votre boutique FreshJuice</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-info">
+                            <h3>Ventes du jour</h3>
+                            <p class="stat-number">1,247€</p>
+                            <span class="stat-change positive">+12%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">📦</div>
+                        <div class="stat-info">
+                            <h3>Commandes</h3>
+                            <p class="stat-number">23</p>
+                            <span class="stat-change positive">+5%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-info">
+                            <h3>Nouveaux clients</h3>
+                            <p class="stat-number">8</p>
+                            <span class="stat-change positive">+15%</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-info">
+                            <h3>Satisfaction</h3>
+                            <p class="stat-number">4.8/5</p>
+                            <span class="stat-change neutral">stable</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card">
+                        <h3>Commandes récentes</h3>
+                        <div class="recent-orders">
+                            <div class="order-item">
+                                <div class="order-info">
+                                    <strong>#CMD-001</strong>
+                                    <span>Marie Dupont</span>
+                                </div>
+                                <div class="order-status">
+                                    <span class="status-badge processing">En cours</span>
+                                    <span class="order-total">24,50€</span>
+                                </div>
+                            </div>
+                            <div class="order-item">
+                                <div class="order-info">
+                                    <strong>#CMD-002</strong>
+                                    <span>Jean Martin</span>
+                                </div>
+                                <div class="order-status">
+                                    <span class="status-badge shipped">Expédiée</span>
+                                    <span class="order-total">18,00€</span>
+                                </div>
+                            </div>
+                            <div class="order-item">
+                                <div class="order-info">
+                                    <strong>#CMD-003</strong>
+                                    <span>Sophie Bernard</span>
+                                </div>
+                                <div class="order-status">
+                                    <span class="status-badge delivered">Livrée</span>
+                                    <span class="order-total">31,20€</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <h3>Produits populaires</h3>
+                        <div class="popular-products-admin">
+                            <div class="product-stat">
+                                <span class="product-name">Jus d'Orange Frais</span>
+                                <span class="product-sales">45 ventes</span>
+                            </div>
+                            <div class="product-stat">
+                                <span class="product-name">Smoothie Mangue</span>
+                                <span class="product-sales">32 ventes</span>
+                            </div>
+                            <div class="product-stat">
+                                <span class="product-name">Jus de Pomme Bio</span>
+                                <span class="product-sales">28 ventes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Products Section -->
+            <section id="products" class="admin-section">
+                <div class="admin-header">
+                    <h1>Gestion des produits</h1>
+                    <button class="cta-button" onclick="showAddProductForm()">Ajouter un produit</button>
+                </div>
+
+                <div class="admin-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Image</th>
+                                <th>Nom</th>
+                                <th>Catégorie</th>
+                                <th>Prix</th>
+                                <th>Stock</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTableBody">
+                            <tr>
+                                <td>1</td>
+                                <td><img src="https://images.pexels.com/photos/1002740/pexels-photo-1002740.jpeg?auto=compress&cs=tinysrgb&w=50" alt="Orange" class="product-thumb"></td>
+                                <td>Jus d'Orange Frais</td>
+                                <td>Classique</td>
+                                <td>4,50€</td>
+                                <td>25</td>
+                                <td><span class="status-badge active">Actif</span></td>
+                                <td>
+                                    <button class="btn-edit" onclick="editProduct(1)">Modifier</button>
+                                    <button class="btn-delete" onclick="deleteProduct(1)">Supprimer</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><img src="https://images.pexels.com/photos/1327838/pexels-photo-1327838.jpeg?auto=compress&cs=tinysrgb&w=50" alt="Pomme" class="product-thumb"></td>
+                                <td>Jus de Pomme Bio</td>
+                                <td>Classique</td>
+                                <td>4,00€</td>
+                                <td>18</td>
+                                <td><span class="status-badge active">Actif</span></td>
+                                <td>
+                                    <button class="btn-edit" onclick="editProduct(2)">Modifier</button>
+                                    <button class="btn-delete" onclick="deleteProduct(2)">Supprimer</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><img src="https://images.pexels.com/photos/1842332/pexels-photo-1842332.jpeg?auto=compress&cs=tinysrgb&w=50" alt="Mangue" class="product-thumb"></td>
+                                <td>Smoothie Mangue</td>
+                                <td>Smoothie</td>
+                                <td>5,50€</td>
+                                <td>12</td>
+                                <td><span class="status-badge active">Actif</span></td>
+                                <td>
+                                    <button class="btn-edit" onclick="editProduct(3)">Modifier</button>
+                                    <button class="btn-delete" onclick="deleteProduct(3)">Supprimer</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Orders Section -->
+            <section id="orders" class="admin-section">
+                <div class="admin-header">
+                    <h1>Gestion des commandes</h1>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" onclick="filterOrders('all')">Toutes</button>
+                        <button class="filter-btn" onclick="filterOrders('pending')">En attente</button>
+                        <button class="filter-btn" onclick="filterOrders('processing')">En cours</button>
+                        <button class="filter-btn" onclick="filterOrders('shipped')">Expédiées</button>
+                        <button class="filter-btn" onclick="filterOrders('delivered')">Livrées</button>
+                    </div>
+                </div>
+
+                <div class="admin-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>N° Commande</th>
+                                <th>Client</th>
+                                <th>Date</th>
+                                <th>Produits</th>
+                                <th>Total</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ordersTableBody">
+                            <tr data-status="processing">
+                                <td>#CMD-001</td>
+                                <td>Marie Dupont</td>
+                                <td>15/01/2025</td>
+                                <td>3 articles</td>
+                                <td>24,50€</td>
+                                <td><span class="status-badge processing">En cours</span></td>
+                                <td>
+                                    <button class="btn-edit" onclick="viewOrder('CMD-001')">Voir</button>
+                                    <button class="btn-secondary" onclick="updateOrderStatus('CMD-001')">Modifier statut</button>
+                                </td>
+                            </tr>
+                            <tr data-status="shipped">
+                                <td>#CMD-002</td>
+                                <td>Jean Martin</td>
+                                <td>14/01/2025</td>
+                                <td>2 articles</td>
+                                <td>18,00€</td>
+                                <td><span class="status-badge shipped">Expédiée</span></td>
+                                <td>
+                                    <button class="btn-edit" onclick="viewOrder('CMD-002')">Voir</button>
+                                    <button class="btn-secondary" onclick="updateOrderStatus('CMD-002')">Modifier statut</button>
+                                </td>
+                            </tr>
+                            <tr data-status="delivered">
+                                <td>#CMD-003</td>
+                                <td>Sophie Bernard</td>
+                                <td>13/01/2025</td>
+                                <td>4 articles</td>
+                                <td>31,20€</td>
+                                <td><span class="status-badge delivered">Livrée</span></td>
+                                <td>
+                                    <button class="btn-edit" onclick="viewOrder('CMD-003')">Voir</button>
+                                    <button class="btn-secondary" onclick="updateOrderStatus('CMD-003')">Modifier statut</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Customers Section -->
+            <section id="customers" class="admin-section">
+                <div class="admin-header">
+                    <h1>Gestion des clients</h1>
+                    <button class="cta-button" onclick="exportCustomers()">Exporter la liste</button>
+                </div>
+
+                <div class="admin-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nom</th>
+                                <th>Email</th>
+                                <th>Téléphone</th>
+                                <th>Commandes</th>
+                                <th>Total dépensé</th>
+                                <th>Inscription</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="customersTableBody">
+                            <tr>
+                                <td>1</td>
+                                <td>Marie Dupont</td>
+                                <td>marie.dupont@email.com</td>
+                                <td>06 12 34 56 78</td>
+                                <td>5</td>
+                                <td>127,50€</td>
+                                <td>10/12/2024</td>
+                                <td>
+                                    <button class="btn-edit" onclick="viewCustomer(1)">Voir</button>
+                                    <button class="btn-secondary" onclick="contactCustomer(1)">Contacter</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Jean Martin</td>
+                                <td>jean.martin@email.com</td>
+                                <td>06 98 76 54 32</td>
+                                <td>3</td>
+                                <td>89,20€</td>
+                                <td>05/12/2024</td>
+                                <td>
+                                    <button class="btn-edit" onclick="viewCustomer(2)">Voir</button>
+                                    <button class="btn-secondary" onclick="contactCustomer(2)">Contacter</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Sophie Bernard</td>
+                                <td>sophie.bernard@email.com</td>
+                                <td>06 11 22 33 44</td>
+                                <td>7</td>
+                                <td>203,80€</td>
+                                <td>28/11/2024</td>
+                                <td>
+                                    <button class="btn-edit" onclick="viewCustomer(3)">Voir</button>
+                                    <button class="btn-secondary" onclick="contactCustomer(3)">Contacter</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Add Product Modal -->
+    <div id="addProductModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Ajouter un produit</h2>
+                <span class="close" onclick="closeAddProductForm()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="addProductForm">
+                    <div class="form-group">
+                        <label for="productName">Nom du produit</label>
+                        <input type="text" id="productName" name="productName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productCategory">Catégorie</label>
+                        <select id="productCategory" name="productCategory" required>
+                            <option value="">Choisir une catégorie</option>
+                            <option value="classic">Classique</option>
+                            <option value="exotic">Exotique</option>
+                            <option value="smoothie">Smoothie</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="productPrice">Prix (€)</label>
+                        <input type="number" id="productPrice" name="productPrice" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productStock">Stock</label>
+                        <input type="number" id="productStock" name="productStock" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="productDescription">Description</label>
+                        <textarea id="productDescription" name="productDescription" rows="4"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="productImage">URL de l'image</label>
+                        <input type="url" id="productImage" name="productImage">
+                    </div>
+                    <button type="submit" class="cta-button">Ajouter le produit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="../javascripts/script.js"></script>
+</body>
+</html>

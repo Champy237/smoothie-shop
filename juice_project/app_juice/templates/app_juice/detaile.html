@@ -1,0 +1,176 @@
+{% extends "../base/base_nav.html" %}
+{% load static %}
+
+
+
+
+
+{% block title %}{{ juice.name }}{% endblock title %}
+
+{% block container %}
+<main>
+    <section class="product-detail">
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="{% url 'index' %}">Accueil</a> > 
+                <a href="{% url 'catalog' %}">Catalogue</a> > 
+                <span>{{ juice.name }}</span>
+            </div>
+
+            <div class="product-detail-content">
+                <div class="product-detail-grid">
+                    
+                    <!-- Images -->
+                    <div class="product-images">
+                        <div class="main-image">
+                            <img src="{{ juice.image.url }}" alt="{{ juice.name }}" class="responsive-img">
+                        </div>
+                    </div>
+
+<style>
+    .product-images {
+        width: 100%;
+        display: flex;
+        justify-content: center; /* Centrer l'image */
+        margin-bottom: 20px;
+    }
+
+    .main-image {
+        width: 100%;
+        max-width: 500px; /* Limite la largeur maximale */
+    }
+
+    .responsive-img {
+        width: 100%;    /* Prend toute la largeur du conteneur */
+        height: auto;   /* Conserve les proportions */
+        display: block;
+        border-radius: 8px; /* Optionnel : coins arrondis */
+        object-fit: cover;   /* Ajuste le contenu si nécessaire */
+    }
+</style>
+
+
+                    <!-- Infos produit -->
+                    <div class="product-info-detail">
+                        <h1>{{ juice.name }}</h1>
+
+                        <div class="product-price-detail">
+                            <span class="current-price">{{ juice.price }} FCFA</span>
+                        </div>
+
+                        <div class="product-description-detail">
+                            <h3>Description</h3>
+                            <p>
+                                {{ juice.description|default:"Aucune description disponible." }}
+                            </p>
+                        </div>
+
+                        <div class="product-actions">
+                        <div class="quantity-selector">
+                            <label for="quantity">Quantité:</label>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" id="decreaseQty">-</button>
+                                
+                                <!-- On affiche la quantité en BDD avec Django -->
+                                <input type="number" 
+                                    id="quantity" 
+                                    value="1" 
+                                    min="1" 
+                                    max="{{ juice.stock }}">
+                                
+                                <button class="quantity-btn" id="increaseQty">+</button>
+                            </div>
+                            <p style="font-size: 0.9rem; color: #555; margin-top: 5px;">
+                                Stock disponible : <strong>{{ juice.stock }}</strong>
+                            </p>
+                        </div>
+
+                            
+                            <button class="add-to-cart-detail cta-button">
+                                Ajouter au panier - <span>{{ juice.price }} FCFA</span>
+                            </button>
+                            
+                            <button class="wishlist-btn btn-secondary">
+                                ❤️ Ajouter aux favoris
+                            </button>
+                        </div>
+
+                        <div class="delivery-info">
+                        <div class="delivery-item">
+                            <span class="delivery-icon"><i class="fas fa-truck-fast"></i></span>
+                            <div>
+                                <strong>Livraison rapide</strong>
+                                <p>Livré en 24h</p>
+                            </div>
+                        </div>
+                        <div class="delivery-item">
+                            <span class="delivery-icon"><i class="fas fa-snowflake"></i></span>
+                            <div>
+                                <strong>Fraîcheur garantie</strong>
+                                <p>Transport réfrigéré</p>
+                            </div>
+                        </div>
+                        <div class="delivery-item">
+                            <span class="delivery-icon"><i class="fas fa-rotate"></i></span>
+                            <div>
+                                <strong>Satisfaction garantie</strong>
+                                <p>Remboursement si non satisfait</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produits similaires -->
+            <section class="related-products">
+                    <h2>Produits similaires</h2>
+                    <div class="related-products-grid">
+                        
+                        {% for juice in juice_items %}
+                            
+                    <div class="product-card">
+                        <img src="{{ juice.image.url }}" alt="{{ juice.name }}">
+                        <h3>{{ juice.name }}</h3>
+                        <p class="price">{{ juice.price }} FCFA</p>
+
+                        <div class="product-actions" style="display: flex; gap: 10px; margin-top: 10px;">
+                            <!-- Bouton Ajouter au panier -->
+                            <form action="#" method="post" style="flex:1;">
+                                {% csrf_token %}
+                                <button type="submit" class="cta-button add-to-cart-btn" 
+                                        style="width: 100%; background-color: #28a745; color: #fff; border: none; padding: 10px 0; border-radius: 5px; font-weight: bold; cursor: pointer;">
+                                    Ajouter au panier
+                                </button>
+                            </form>
+
+                            <!-- Bouton Voir détails -->
+                            <a href="{% url 'detail_juice' juice.id %}" class="cta-button detail-btn" 
+                            style="flex:1; display:flex; justify-content:center; align-items:center; text-decoration:none; background-color:#007bff; color:#fff; padding:10px 0; border-radius:5px; font-weight:bold;">
+                                Voir détails
+                            </a>
+                        </div>
+                    </div>
+
+<style>
+    .add-to-cart-btn:hover {
+        background-color: #218838;
+    }
+    .detail-btn:hover {
+        background-color: #0069d9;
+    }
+</style>
+
+                        {% endfor %}
+                            
+
+                    
+                    </div>
+            </section>
+        </div>
+    </section>
+</main>
+
+
+{% endblock container%}

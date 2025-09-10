@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - FreshJuice</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h2>🍊 FreshJuice</h2>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="catalog.html" class="nav-link">Catalogue</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                    <li><a href="login.html" class="nav-link">Connexion</a></li>
+                    <li>
+                        <div class="cart-icon" id="cartIcon">
+                            <span>🛒</span>
+                            <span class="cart-count" id="cartCount">0</span>
+                        </div>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Créer un compte</h1>
+                <p>Rejoignez la communauté FreshJuice et profitez d'avantages exclusifs</p>
+            </div>
+        </section>
+
+        <section class="register-section">
+            <div class="container">
+                <div class="register-container">
+                    <div class="register-form">
+                        <h2>Inscription</h2>
+                        <form id="registerForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">Prénom *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Nom *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Téléphone</label>
+                                <input type="tel" id="phone" name="phone" placeholder="06 12 34 56 78">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="password">Mot de passe *</label>
+                                    <input type="password" id="password" name="password" required>
+                                    <div class="password-strength" id="passwordStrength"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirmer le mot de passe *</label>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="birthDate">Date de naissance</label>
+                                <input type="date" id="birthDate" name="birthDate">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">Adresse</label>
+                                <input type="text" id="address" name="address" placeholder="123 Rue de la Paix">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="city">Ville</label>
+                                    <input type="text" id="city" name="city" placeholder="Paris">
+                                </div>
+                                <div class="form-group">
+                                    <label for="postalCode">Code postal</label>
+                                    <input type="text" id="postalCode" name="postalCode" placeholder="75001">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="preferences">Préférences de jus</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" name="preferences" value="classic">
+                                        <span class="checkmark"></span>
+                                        Jus classiques (orange, pomme, etc.)
+                                    </label>
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" name="preferences" value="exotic">
+                                        <span class="checkmark"></span>
+                                        Jus exotiques (passion, ananas, etc.)
+                                    </label>
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" name="preferences" value="smoothie">
+                                        <span class="checkmark"></span>
+                                        Smoothies et mélanges
+                                    </label>
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" name="preferences" value="detox">
+                                        <span class="checkmark"></span>
+                                        Jus détox et verts
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="newsletter" name="newsletter">
+                                    <span class="checkmark"></span>
+                                    Je souhaite recevoir la newsletter avec les nouveautés et promotions
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="terms" name="terms" required>
+                                    <span class="checkmark"></span>
+                                    J'accepte les <a href="#" class="terms-link">conditions générales d'utilisation</a> *
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="checkbox-container">
+                                    <input type="checkbox" id="privacy" name="privacy" required>
+                                    <span class="checkmark"></span>
+                                    J'accepte la <a href="#" class="privacy-link">politique de confidentialité</a> *
+                                </label>
+                            </div>
+
+                            <button type="submit" class="cta-button">Créer mon compte</button>
+                        </form>
+
+                        <div class="register-links">
+                            <p>Déjà un compte ? <a href="login.html" class="login-link">Se connecter</a></p>
+                        </div>
+
+                        <div id="registerMessage" class="form-message hidden"></div>
+                    </div>
+
+                    <div class="register-benefits">
+                        <h3>Pourquoi créer un compte ?</h3>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🎯</div>
+                            <div>
+                                <h4>Commandes simplifiées</h4>
+                                <p>Vos informations sont sauvegardées pour des commandes plus rapides</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">📦</div>
+                            <div>
+                                <h4>Historique des commandes</h4>
+                                <p>Consultez et suivez toutes vos commandes passées</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🎁</div>
+                            <div>
+                                <h4>Offres personnalisées</h4>
+                                <p>Recevez des promotions adaptées à vos goûts</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">⭐</div>
+                            <div>
+                                <h4>Points de fidélité</h4>
+                                <p>Gagnez des points à chaque achat et obtenez des réductions</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">🔔</div>
+                            <div>
+                                <h4>Alertes nouveautés</h4>
+                                <p>Soyez le premier informé de nos nouveaux produits</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">💚</div>
+                            <div>
+                                <h4>Programme éco-responsable</h4>
+                                <p>Participez à nos actions pour l'environnement</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🍊 FreshJuice</h3>
+                    <p>Des jus de fruits naturels pour une vie plus saine et plus savoureuse.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens Utiles</h4>
+                    <ul>
+                        <li><a href="index.html">Accueil</a></li>
+                        <li><a href="catalog.html">Catalogue</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📧 contact@freshjuice.fr</p>
+                    <p>📞 01 23 45 67 89</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 FreshJuice. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Mon Panier</h2>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div id="cartItems"></div>
+                <div class="cart-total">
+                    <h3>Total: <span id="cartTotal">0,00€</span></h3>
+                </div>
+                <div class="cart-actions">
+                    <button id="clearCart" class="btn-secondary">Vider le panier</button>
+                    <button id="checkoutBtn" class="cta-button">Passer la commande</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

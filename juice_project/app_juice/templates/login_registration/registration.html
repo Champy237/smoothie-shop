@@ -1,0 +1,135 @@
+{% extends "../base/base_nav.html" %}
+{% load static %}
+{% block title %}LOGIN{% endblock title %}
+
+
+
+{% block container %}
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Créer un compte</h1>
+                <p>Rejoignez la communauté FreshJuice et profitez d'avantages exclusifs</p>
+            </div>
+        </section>
+
+        <section class="register-section">
+            <div class="container">
+                <div class="register-container">
+                    <div class="register-form">
+                        <h2>Inscription</h2>
+                        <form method="POST">
+                            {% csrf_token %}
+                            
+                            <!-- Nom d’utilisateur -->
+                            <div class="form-group">
+                                <label for="id_username">Nom d'utilisateur *</label>
+                                {{ form.username }}
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="id_first_name">Prénom *</label>
+                                    {{ form.first_name }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="id_last_name">Nom *</label>
+                                    {{ form.last_name }}
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="id_email">Email *</label>
+                                {{ form.email }}
+                            </div>
+
+                            <div class="form-group">
+                                <label for="id_telephone">Téléphone</label>
+                                {{ form.telephone }}
+                            </div>
+
+                            <div class="form-group">
+                                <label for="id_adresse">Adresse</label>
+                                {{ form.adresse }}
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="id_password1">Mot de passe *</label>
+                                    {{ form.password1 }}
+                                </div>
+                                <div class="form-group">
+                                    <label for="id_password2">Confirmer le mot de passe *</label>
+                                    {{ form.password2 }}
+                                </div>
+                            </div>
+
+                            <button type="submit" class="cta-button">Créer mon compte</button>
+                        </form>
+
+                        <div class="register-links">
+                            <p>Déjà un compte ? <a href="{% url 'login' %}" class="login-link">Se connecter</a></p>
+                        </div>
+
+                        <div id="registerMessage" class="form-message hidden"></div>
+                    </div>
+
+                    <div class="register-benefits">
+                        <h3>Pourquoi créer un compte ?</h3>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
+                            <div>
+                                <h4>Commandes simplifiées</h4>
+                                <p>Vos informations sont sauvegardées pour des commandes plus rapides</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-box"></i></div>
+                            <div>
+                                <h4>Historique des commandes</h4>
+                                <p>Consultez et suivez toutes vos commandes passées</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-gift"></i></div>
+                            <div>
+                                <h4>Offres personnalisées</h4>
+                                <p>Recevez des promotions adaptées à vos goûts</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-star"></i></div>
+                            <div>
+                                <h4>Points de fidélité</h4>
+                                <p>Gagnez des points à chaque achat et obtenez des réductions</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-bell"></i></div>
+                            <div>
+                                <h4>Alertes nouveautés</h4>
+                                <p>Soyez le premier informé de nos nouveaux produits</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-leaf"></i></div>
+                            <div>
+                                <h4>Programme éco-responsable</h4>
+                                <p>Participez à nos actions pour l'environnement</p>
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+        </section>
+    </main>
+
+{% endblock container%}
+    

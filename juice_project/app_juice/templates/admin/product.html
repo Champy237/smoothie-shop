@@ -1,0 +1,59 @@
+{% extends "../base/base_admin.html" %}
+{% load static %}
+{% block title %}Product{% endblock title %}
+
+{% block container %}
+
+
+
+
+            <section id="products" class="admin-section">
+                <div class="admin-header">
+                    <h1>Gestion des produits</h1>
+                    <button class="cta-button" onclick="showAddProductForm()">Ajouter un produit</button>
+                </div>
+
+                <div class="admin-table-container">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Image</th>
+                                <th>Nom</th>
+                                <th>Catégorie</th>
+                                <th>Prix</th>
+                                <th>Stock</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="productsTableBody">
+                            
+                            
+                            {% for juice in juices %}
+                                
+                            <tr>
+                                <td> {{juice.id}} </td>
+                                <td><img src="{{ juice.image.url }}" alt="Orange" class="product-thumb"></td>
+                                <td>{{ juice.name }}</td>
+                                <td>{{ juice.categorie }}</td>
+                                <td>{{ juice.price }}FCFA </td>
+                                <td>{{juice.stock }} </td>
+                                <td><span class="status-badge active">Actif</span></td>
+                                <td>
+                                    <button class="btn-edit" onclick="editProduct(1)">Modifier</button>
+                                    <button class="btn-delete" onclick="deleteProduct(1)">Supprimer</button>
+                                </td>
+                            </tr>
+
+
+                            {% endfor %}
+                                
+                        
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+
+{% endblock container%}

@@ -1,0 +1,87 @@
+{% extends "../base/base_nav.html" %}
+{% load static %}
+{% block title %}LOGIN{% endblock title %}
+
+
+
+{% block container %}
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Connexion</h1>
+                <p>Accédez à votre compte FreshJuice</p>
+            </div>
+        </section>
+
+        <section class="login-section">
+            <div class="container">
+                <div class="login-container">
+                    <div class="login-form">
+                        <h2>Se connecter</h2>
+                        <form id="loginForm" method="POST" novalidate>
+                            {% csrf_token %}
+
+                            <div class="form-group">
+                                <label for="username">Nom d'utilisateur</label>
+                                <input type="text" id="username" name="username" required>
+                            </div>
+
+                            <div class="form-group mt-3">
+                                <label for="password">Mot de passe</label>
+                                <input type="password" id="password" name="password" required>
+                            </div>
+
+                            <button type="submit" class="cta-button mt-3">Se connecter</button>
+                        </form>
+
+
+                        <div class="login-links">
+                            <p>Pas encore de compte ? <a href="{% url 'registration' %}" class="register-link">S'inscrire</a></p>
+                        </div>
+
+                        <div id="loginMessage" class="form-message hidden"></div>
+                    </div>
+
+                    <div class="login-benefits">
+                        <h3>Avantages du compte FreshJuice</h3>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-bolt"></i></div>
+                            <div>
+                                <h4>Commandes rapides</h4>
+                                <p>Sauvegardez vos informations pour commander plus rapidement</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-box-open"></i></div>
+                            <div>
+                                <h4>Suivi des commandes</h4>
+                                <p>Suivez l'état de vos commandes en temps réel</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-gift"></i></div>
+                            <div>
+                                <h4>Offres exclusives</h4>
+                                <p>Recevez des promotions réservées aux membres</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon"><i class="fas fa-star"></i></div>
+                            <div>
+                                <h4>Programme fidélité</h4>
+                                <p>Gagnez des points à chaque achat</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+{% endblock container %}

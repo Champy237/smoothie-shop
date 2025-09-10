@@ -1,0 +1,75 @@
+{% extends "../catalog.html" %}
+{% load static %}
+{% block title %}COTALOG{% endblock title %}
+
+
+
+{% block containers %}
+
+
+    <section class="catalog">
+        <div class="container">
+            <!-- Filter Section -->
+            <div class="filter-section">
+                <h3>Filtrer par catégorie:</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn" data-filter="all" onclick="window.location.href='{% url 'catalog' %}'">Tous</button>
+                    <button class="filter-btn" data-filter="classic" onclick="window.location.href='{% url 'catalog_classique' %}'">Classiques</button>
+                    <button class="filter-btn active" data-filter="exotic" onclick="window.location.href='{% url 'catalog_exotic' %}'">Exotiques</button>
+                    <button class="filter-btn" data-filter="smoothie" onclick="window.location.href='{% url 'smoothies' %}'">Smoothies</button>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid">
+
+                {% for juice in juices %}
+                {% if juice.categorie == "exotic" %}
+
+                    <div class="product">
+                    <div class="product-image">
+                        <img src="{{ juice.image.url }}" alt="{{ juice.name }}">
+                    </div>
+                    <div class="product-info">
+                        <h3> {{ juice.name}} </h3>
+                        <p class="product-description"> {{ juice.description }} </p>
+                        <p class="price"> {{ juice.price }} FCFA</p>
+                        <button class="add-to-cart" data-id="1">Ajouter au panier</button>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+                <!-- Product 5 -->
+                <div class="product" data-id="5" data-name="Jus d'Ananas Tropical" data-price="4.80" data-category="exotic">
+                    <div class="product-image">
+                        <img src="https://images.pexels.com/photos/1448721/pexels-photo-1448721.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Jus d'ananas">
+                    </div>
+                    <div class="product-info">
+                        <h3>Jus d'Ananas Tropical</h3>
+                        <p class="product-description">Ananas frais des îles tropicales</p>
+                        <p class="price">4,80€</p>
+                        <button class="add-to-cart" data-id="5">Ajouter au panier</button>
+                    </div>
+                </div>
+
+
+                <!-- Product 7 -->
+                <div class="product" data-id="7" data-name="Jus de Passion Exotique" data-price="6.00" data-category="exotic">
+                    <div class="product-image">
+                        <img src="https://images.pexels.com/photos/1495005/pexels-photo-1495005.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Jus de fruit de la passion">
+                    </div>
+                    <div class="product-info">
+                        <h3>Jus de Passion Exotique</h3>
+                        <p class="product-description">Fruit de la passion intense et rafraîchissant</p>
+                        <p class="price">6,00€</p>
+                        <button class="add-to-cart" data-id="7">Ajouter au panier</button>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+    
+{% endblock containers %}
+    
